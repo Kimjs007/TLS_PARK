@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E29B8813-193A-4D3D-98E8-94226C59C822}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="IT_OLED_TLS.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IT_OLED_TEST_GUI.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\ref\TestCommThermometer_Multi\TestCommThermometer_Multi.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="IT_OLED_TEST_GUI_TEMP_PLATE.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="IT_OLED_TLS">
+        <MSBuild Projects="IT_OLED_TLS.dproj"/>
+    </Target>
+    <Target Name="IT_OLED_TLS:Clean">
+        <MSBuild Projects="IT_OLED_TLS.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IT_OLED_TLS:Make">
+        <MSBuild Projects="IT_OLED_TLS.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IT_OLED_TEST_GUI">
+        <MSBuild Projects="IT_OLED_TEST_GUI.dproj"/>
+    </Target>
+    <Target Name="IT_OLED_TEST_GUI:Clean">
+        <MSBuild Projects="IT_OLED_TEST_GUI.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IT_OLED_TEST_GUI:Make">
+        <MSBuild Projects="IT_OLED_TEST_GUI.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TestCommThermometer_Multi">
+        <MSBuild Projects="..\ref\TestCommThermometer_Multi\TestCommThermometer_Multi.dproj"/>
+    </Target>
+    <Target Name="TestCommThermometer_Multi:Clean">
+        <MSBuild Projects="..\ref\TestCommThermometer_Multi\TestCommThermometer_Multi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TestCommThermometer_Multi:Make">
+        <MSBuild Projects="..\ref\TestCommThermometer_Multi\TestCommThermometer_Multi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="IT_OLED_TEST_GUI_TEMP_PLATE">
+        <MSBuild Projects="IT_OLED_TEST_GUI_TEMP_PLATE.dproj"/>
+    </Target>
+    <Target Name="IT_OLED_TEST_GUI_TEMP_PLATE:Clean">
+        <MSBuild Projects="IT_OLED_TEST_GUI_TEMP_PLATE.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="IT_OLED_TEST_GUI_TEMP_PLATE:Make">
+        <MSBuild Projects="IT_OLED_TEST_GUI_TEMP_PLATE.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="IT_OLED_TLS;IT_OLED_TEST_GUI;TestCommThermometer_Multi;IT_OLED_TEST_GUI_TEMP_PLATE"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="IT_OLED_TLS:Clean;IT_OLED_TEST_GUI:Clean;TestCommThermometer_Multi:Clean;IT_OLED_TEST_GUI_TEMP_PLATE:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="IT_OLED_TLS:Make;IT_OLED_TEST_GUI:Make;TestCommThermometer_Multi:Make;IT_OLED_TEST_GUI_TEMP_PLATE:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
